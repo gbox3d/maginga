@@ -11,8 +11,9 @@ using UnityEngine.UI;
 public class magingaController : MonoBehaviour {
 
 
-	[SerializeField] GameObject m_btnTest1,m_btnRightArmLift;
-	[SerializeField] GameObject m_leftArmJoint,m_RightArmJoint;
+	[SerializeField] GameObject m_btnTest1,m_btnRightArmLift,m_btnShootMissile;
+	[SerializeField] GameObject m_leftArmJoint,m_RightArmJoint,m_BodyMissile;
+
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,10 @@ public class magingaController : MonoBehaviour {
 		});
 		m_btnRightArmLift.transform.GetComponent<Button> ().OnClickAsObservable ().Subscribe (_ => {
 			m_RightArmJoint.transform.GetComponent<Animator>().SetTrigger("leftArmLiftUp");
+		});
+
+		m_btnShootMissile.transform.GetComponent<Button> ().OnClickAsObservable ().Subscribe (_ => {
+			m_BodyMissile.transform.GetComponent<Animator>().SetTrigger("shoot");
 		});
 
 		
